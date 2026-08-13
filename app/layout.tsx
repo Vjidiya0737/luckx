@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import type { ReactNode } from "react";
+
 import "./globals.css";
 import Footer from "./components/footer";
 import Header from "./components/header";
+import { SITE_URL } from "../config/constants";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,27 +18,48 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Luckx | Real Cash Games APK Download",
+  metadataBase: new URL(SITE_URL),
+
+  title: "Luckx Games – Official Luckx Guide",
+
   description:
-    "Download the official Luckx APK to play real cash skill games, fantasy cricket, and win instant UPI payouts.",
-  metadataBase: new URL("https://luckxgameplay.com"),
+    "Complete guide for Luckx Games including APK download, login instructions, registration, bonuses, and latest updates.",
+
+  keywords: [
+    "Luckx",
+    "Luckx Games",
+    "Luckx APK",
+    "Luckx APK Download",
+    "Luckx Game",
+    "Luckx Login",
+    "Luckx Registration",
+    "Luckx App",
+  ],
+
   openGraph: {
-    title: "Luckx | Real Cash Games APK Download",
+    title: "Luckx Games – Official Luckx Guide",
     description:
-      "Download the official Luckx APK to play real cash skill games, fantasy cricket, and win instant UPI payouts.",
-    url: "https://luckxgameplay.com",
-    siteName: "Luckx",
+      "Complete guide for Luckx Games including APK download, login instructions, registration, bonuses, and latest updates.",
+    url: SITE_URL + "/",
+    siteName: "Luckx Games",
     type: "website",
+    locale: "en_IN",
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Luckx | Official APK Download",
+    title: "Luckx Games – Official Luckx Guide",
     description:
-      "Secure the Luckx APK and start playing slots, fantasy cricket, and instant payout games.",
+      "Complete guide for Luckx Games including APK download, login instructions, registration, bonuses, and latest updates.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"

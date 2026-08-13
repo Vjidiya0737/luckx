@@ -26,6 +26,8 @@ export interface BlogPost {
   author: string;
 }
 
+export const SITE_URL = "https://www.luckxgameplay.com";
+
 export interface GameItem {
   name: string;
   category: string;

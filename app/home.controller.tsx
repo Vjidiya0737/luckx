@@ -56,7 +56,7 @@ export default function HomeController() {
 
         <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
           Luckx APK Download 2026 <br className="hidden sm:inline" />
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-luckx-gold via-amber-300 to-yellow-500">
+          <span className="text-white">
             Play Real Cash Games & Fantasy Cricket
           </span>
         </h1>
@@ -73,7 +73,7 @@ export default function HomeController() {
             href={DOWNLOAD_LINKS.DEFAULT_APK}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-linear-to-r from-luckx-emerald to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 font-bold text-sm text-white shadow-lg shadow-luckx-emerald/20 transition-transform active:scale-95"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-xs sm:text-sm bg-linear-to-r from-[#10b981] to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white shadow-lg shadow-[#10b981]/20 transition-transform active:scale-95"
           >
             🚀 Download Luckx APK
           </Link>

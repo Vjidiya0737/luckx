@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { DOWNLOAD_LINKS, NAV_LINKS } from "@/config/constants";
+import Image from "next/image";
+import luckx from "../../public/luckx.png";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,13 +13,15 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-luckx-dark/95 backdrop-blur-md border-b border-luckx-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl bg-linear-to-tr from-luckx-gold to-yellow-300 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-luckx-gold/20 group-hover:scale-105 transition-transform">
-            LX
-          </div>
-          <span className="text-2xl font-extrabold text-white tracking-tight">
-            Luckx
-          </span>
+        <Link href="/" className="flex items-center group">
+          <Image
+            src={luckx}
+            alt="Luckx"
+            width={140}
+            height={40}
+            priority
+            className="h-10 w-auto object-contain group-hover:scale-105 transition-transform"
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -39,7 +43,7 @@ export default function Header() {
             href={DOWNLOAD_LINKS.DEFAULT_APK}
             target="_blank"
             rel="noreferrer"
-            className="px-5 py-2.5 rounded-xl font-bold text-sm bg-linear-to-r from-luckx-emerald to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white shadow-lg shadow-luckx-emerald/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-xs sm:text-sm bg-linear-to-r from-[#10b981] to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white shadow-lg shadow-[#10b981]/20 transition-transform active:scale-95"
           >
             ⚡ Download APK
           </Link>
