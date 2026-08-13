@@ -32,7 +32,8 @@ export interface GameItem {
 }
 
 export const DOWNLOAD_LINKS = {
-  DEFAULT_APK: "https://invite.luckx.club/?code=DU7ITHS",
+  DEFAULT_APK:
+    "https://luckx-in.luckxhub.com/en/affiliate-invited?c=WWWXXGTWYH&s=3",
   TELEGRAM: "https://t.me/luckxofficial",
   WHATSAPP: "https://wa.me/1234567890",
   EMAIL: "support@luckxgameplay.com",
