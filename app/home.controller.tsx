@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { APP_DETAILS, DOWNLOAD_LINKS } from "@/config/constants";
 import Link from "next/link";
+import Image from "next/image";
+import luckx from "../public/luckx.png";
 
 export default function HomeController() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -66,6 +68,17 @@ export default function HomeController() {
           fantasy sports with instant UPI withdrawals and up to ₹500 signup
           bonus.
         </p>
+
+        <div className="flex justify-center">
+          <Image
+            src={luckx}
+            alt="Luckx Game"
+            width={180}
+            height={180}
+            className="rounded-3xl shadow-2xl border-2 border-accent/20"
+            priority={false} // Uses lazy loading by default
+          />
+        </div>
 
         {/* Direct CTA Download Link using DOWNLOAD_LINKS */}
         <div className="flex justify-center pt-2" id="download">
