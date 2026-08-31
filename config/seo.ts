@@ -1,44 +1,73 @@
 import type { Metadata } from "next";
-import { SITE_URL } from "./constants";
+import { SITE_CONFIG } from "./constants";
 
-type Input = {
-  title: string;
-  description: string;
-  path?: string;
+interface MetadataProps {
+  title?: string;
+  description?: string;
   keywords?: string[];
-  image?: string;
-};
+  path?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  noIndex?: boolean;
+}
 
 export function buildMetadata({
   title,
   description,
-  path = "/",
-  keywords = [],
-  image,
-}: Input): Metadata {
-  const url = `${SITE_URL}${path}`.replace(/([^:]?)\/\/+/g, "$1/");
+  keywords,
+  path,
+  canonicalUrl,
+  ogImage = SITE_CONFIG.ogImage,
+  noIndex = false,
+}: MetadataProps = {}): Metadata {
+  const resolvedCanonical = canonicalUrl || path || "/";
+  const pageTitle = title
+    ? `${title} | ${SITE_CONFIG.name}`
+    : SITE_CONFIG.title;
+  const pageDescription = description || SITE_CONFIG.description;
+  const pageKeywords = keywords || SITE_CONFIG.keywords;
+  const fullCanonical = `${SITE_CONFIG.url}${resolvedCanonical.startsWith("/") ? resolvedCanonical : `/${resolvedCanonical}`}`;
 
   return {
-    title,
-    description,
-    keywords,
+    title: pageTitle,
+    description: pageDescription,
+    keywords: pageKeywords,
+    metadataBase: new URL(SITE_CONFIG.url),
+    alternates: {
+      canonical: fullCanonical,
+    },
     openGraph: {
-      title,
-      description,
-      url,
-      siteName: "Luckx Games",
+      title: pageTitle,
+      description: pageDescription,
+      url: fullCanonical,
+      siteName: SITE_CONFIG.name,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: `${SITE_CONFIG.name} Preview`,
+        },
+      ],
+      locale: "en_US",
       type: "website",
-      locale: "en_IN",
-      images: image ? [{ url: image }] : undefined,
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
-      images: image ? [image] : undefined,
+      title: pageTitle,
+      description: pageDescription,
+      images: [ogImage],
     },
-    alternates: {
-      canonical: url,
+    robots: {
+      index: !noIndex,
+      follow: !noIndex,
+      googleBot: {
+        index: !noIndex,
+        follow: !noIndex,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  } as Metadata;
+  };
 }

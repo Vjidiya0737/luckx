@@ -25,9 +25,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: SITE_URL + "/",
-    languages: {
-      "x-default": "https://www.hu777gameplay.com",
-    },
   },
 };
 

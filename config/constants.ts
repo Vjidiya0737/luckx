@@ -26,7 +26,35 @@ export interface BlogPost {
   author: string;
 }
 
-export const SITE_URL = "https://www.luckxgameplay.com";
+export const SITE_CONFIG = {
+  name: "LuckX Games",
+  shortName: "LuckX Game",
+  domain: "www.luckxgameplay.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.luckxgameplay.com",
+  ogImage: "/luckx-og.jpeg",
+  themeColor: "#1e293b",
+  backgroundColor: "#0f172a",
+  title: "LuckX Game – Download App, Register & Login Official",
+  description:
+    "Explore LuckX Games: official APK download guide, registration steps, Android access, safety tips, FAQs, and responsible gaming support.",
+  keywords: [
+    "LuckX Game",
+    "LuckX Game download",
+    "LuckX APK download",
+    "LuckX app login",
+    "LuckX register",
+    "LuckX gameplay",
+    "LuckX official site",
+    "LuckX Android app",
+    "LuckX tips and tricks",
+  ],
+  author: {
+    name: "LuckX Games Official",
+    url: "https://www.luckxgameplay.com",
+  },
+};
+
+export const SITE_URL = SITE_CONFIG.url;
 
 export interface GameItem {
   name: string;
