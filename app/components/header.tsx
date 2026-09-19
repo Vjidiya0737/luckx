@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { DOWNLOAD_LINKS, NAV_LINKS } from "@/config/constants";
 import Image from "next/image";
-import luckx from "../../public/luckx.png";
+import luckx from "../../public/luckx.jpeg";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

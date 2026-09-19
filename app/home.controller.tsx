@@ -4,7 +4,21 @@ import { useState } from "react";
 import { APP_DETAILS, DOWNLOAD_LINKS } from "@/config/constants";
 import Link from "next/link";
 import Image from "next/image";
-import luckx from "../public/luckx.png";
+import luckx from "../public/luckx.jpeg";
+import HomeSlider from "./view/homeSlider";
+
+import luckxRummyBanner from "../public/screenshot/luckx-rummy-banner-ajay-devgn.jpeg";
+import modalDailyRace from "../public/screenshot/modal-daily-race-leaderboard.png or tournament-daily-race.jpeg";
+import screenCasinoLobby from "../public/screenshot/screen-casino-lobby-hot-picks.jpeg";
+import splashComeSports from "../public/screenshot/splash-come-sports.jpeg";
+
+// Slider Images Array
+const SLIDER_IMAGES = [
+  luckxRummyBanner,
+  screenCasinoLobby,
+  modalDailyRace,
+  splashComeSports,
+];
 
 export default function HomeController() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -114,6 +128,13 @@ export default function HomeController() {
             </tbody>
           </table>
         </div>
+      </section>
+
+      <section className="py-4">
+        <h2 className="text-center text-xl font-bold mb-8 uppercase tracking-widest text-accent">
+          App Screenshots
+        </h2>
+        <HomeSlider images={SLIDER_IMAGES} />
       </section>
 
       {/* Informational Content */}
