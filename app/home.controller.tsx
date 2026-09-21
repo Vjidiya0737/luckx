@@ -77,12 +77,6 @@ export default function HomeController() {
           </span>
         </h1>
 
-        <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-          Experience high-speed card games, live color prediction, slots, and
-          fantasy sports with instant UPI withdrawals and up to ₹500 signup
-          bonus.
-        </p>
-
         <div className="flex justify-center">
           <Image
             src={luckx}
